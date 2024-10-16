@@ -68,9 +68,8 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             pst.setString(6, cboUsuPerfil.getSelectedItem().toString());
             // Validação dos campos obrigatórios
             if ((txtUsuId.getText().isEmpty()) || (txtUsuNome.getText().isEmpty())
-                     || (txtUsuLogin.getText().isEmpty()) || (txtUsuSenha.getText().isEmpty())
-                       || (cboUsuPerfil.getSelectedItem() == null) 
-                         ||(cboUsuPerfil.getSelectedItem().toString().isEmpty())) {
+                    || (txtUsuLogin.getText().isEmpty()) || (txtUsuSenha.getText().isEmpty())
+                    || (cboUsuPerfil.getSelectedItem() == null)) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios!");
             } else {
                 // A linha abaixo atualiza a tabela 'Usuarios' com os dados do formulário
@@ -91,11 +90,12 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+
     // Criando o método para alterar dados do usuário
-    private void alterar(){
-       String sql="update tbusuarios set usuario=?, telefone=?, login=?, senha=?, perfil=? WHERE iduser=?";
+    private void alterar() {
+        String sql = "update tbusuarios set usuario=?, telefone=?, login=?, senha=?, perfil=? WHERE iduser=?";
         try {
-            pst=conexao.prepareStatement(sql);
+            pst = conexao.prepareStatement(sql);
             pst.setString(1, txtUsuNome.getText());
             pst.setString(2, txtUsuFone.getText());
             pst.setString(3, txtUsuLogin.getText());
@@ -103,9 +103,9 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             pst.setString(5, cboUsuPerfil.getSelectedItem().toString());
             pst.setString(6, txtUsuId.getText());
             if ((txtUsuId.getText().isEmpty()) || (txtUsuNome.getText().isEmpty())
-                     || (txtUsuLogin.getText().isEmpty()) || (txtUsuSenha.getText().isEmpty())
-                        ||(cboUsuPerfil.getSelectedItem() == null)     
-                            || (cboUsuPerfil.getSelectedItem().toString().isEmpty())) {
+                    || (txtUsuLogin.getText().isEmpty()) || (txtUsuSenha.getText().isEmpty())
+                    || (cboUsuPerfil.getSelectedItem() == null)
+                    || (cboUsuPerfil.getSelectedItem().toString().isEmpty())) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios!");
             } else {
                 // A linha abaixo atualiza a tabela 'Usuarios' com os dados do formulário
@@ -127,15 +127,15 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-    
+
     // Método responsável pela remoção de usuários
     private void remover() {
         // A estrutura abaixo confirma a remoção do usuário
         int confirma = JOptionPane.showConfirmDialog(null, "Deseja remover este usuário?", "Atenção!", JOptionPane.YES_NO_OPTION);
-        if (confirma==JOptionPane.YES_NO_OPTION) {
-            String sql="DELETE FROM tbusuarios WHERE iduser=?";
+        if (confirma == JOptionPane.YES_NO_OPTION) {
+            String sql = "DELETE FROM tbusuarios WHERE iduser=?";
             try {
-                pst=conexao.prepareStatement(sql);
+                pst = conexao.prepareStatement(sql);
                 pst.setString(1, txtUsuId.getText());
                 int apagado = pst.executeUpdate();
                 if (apagado > 0) {
@@ -146,14 +146,15 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                     txtUsuSenha.setText(null);
                     cboUsuPerfil.setSelectedItem(null);
                     JOptionPane.showMessageDialog(null, "Usuário removido com sucesso!");
-                    
+
                 }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
-                
+
             }
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

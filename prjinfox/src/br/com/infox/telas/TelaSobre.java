@@ -37,6 +37,7 @@ public class TelaSobre extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sobre");
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Sistema para controle de Ordem de Serviços");
@@ -108,7 +109,7 @@ public class TelaSobre extends javax.swing.JFrame {
                         .addGap(28, 28, 28))))
         );
 
-        pack();
+        setBounds(0, 0, 533, 219);
     }// </editor-fold>//GEN-END:initComponents
 
     /**

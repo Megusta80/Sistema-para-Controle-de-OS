@@ -100,6 +100,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuCadOs.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_MASK));
         menuCadOs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infox/icones/contact-form.png"))); // NOI18N
         menuCadOs.setText("OS");
+        menuCadOs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCadOsActionPerformed(evt);
+            }
+        });
         menuCad.add(menuCadOs);
 
         menuCadUsu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_MASK));
@@ -245,6 +250,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TelaSobre sobre = new TelaSobre();
         sobre.setVisible(true);
     }//GEN-LAST:event_menuAjuSobActionPerformed
+
+    private void menuCadOsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadOsActionPerformed
+        // Chamando a tela OS
+        TelaOS os=new TelaOS();
+        os.setVisible(true);
+        desktop.add(os);
+    }//GEN-LAST:event_menuCadOsActionPerformed
 
     /**
      * @param args the command line arguments
